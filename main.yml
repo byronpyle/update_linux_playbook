@@ -1,6 +1,6 @@
 ---
 - name: Update Ubuntu-based Linux machines
-  hosts: ubuntu
+  hosts: ubuntu_servers
   become: yes
   tasks:
     - name: Update package index
