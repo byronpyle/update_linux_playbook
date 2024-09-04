@@ -19,7 +19,7 @@
 
     - name: Ensure that the system is fully upgraded
       apt:
-        upgrade: full-upgrade
+        upgrade: full
         update_cache: yes
 
     - name: Reboot the machine if needed
