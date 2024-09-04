@@ -1,0 +1,29 @@
+---
+- name: Update Ubuntu-based Linux machines
+  hosts: ubuntu
+  become: yes
+  tasks:
+    - name: Update package index
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages to the latest version
+      apt:
+        upgrade: dist
+
+    - name: Remove unnecessary packages
+      apt:
+        autoremove: yes
+        autoclean: yes
+
+    - name: Ensure that the system is fully upgraded
+      apt:
+        upgrade: full-upgrade
+        update_cache: yes
+
+    - name: Reboot the machine if needed
+      reboot:
+        msg: "Reboot initiated by Ansible playbook for system update"
+        connect_timeout: 5
+        reboot_timeout: 600
+      when: ansible_facts['pkg_mgr'] == 'apt' and ansible_facts['uptime_seconds'] > 3600
