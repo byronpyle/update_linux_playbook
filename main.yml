@@ -3,9 +3,9 @@
   hosts: ubuntu_servers
   become: true
   tasks:
-    - name: Update package index
-      apt:
-        update_cache: yes
+    #- name: Update package index
+      #apt:
+        #update_cache: yes
 
     - name: Upgrade all packages to the latest version
       apt:
