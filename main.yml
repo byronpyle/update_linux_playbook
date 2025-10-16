@@ -1,4 +1,5 @@
 ---
+# Ansible playbook to update Ubuntu-based Linux machines
 - name: Update Ubuntu-based Linux machines
   hosts: ubuntu_servers
   become: yes
